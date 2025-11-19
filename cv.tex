@@ -1,0 +1,274 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+
+
+
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{RAGHULKISHORE R} \\[7.5pt]
+\begin{center}
+\footnotesize
+{{\faMapMarker} \textcolor{black}{Salem}}  \ $|$ \
+\href{mailto:raghulrayar90@gmail.com}{
+    {\color{black}\faEnvelope}\ \textcolor{black}{raghulrayar90@gmail.com}
+}  \ $|$ \
+\href{tel:+91-9360467228}{
+    {\color{black}\faPhone}\ \textcolor{black}{+91-9360467228}
+}
+ \ $|$ \
+\href{http://www.linkedin.com/in/raghulkishore-r-940332298}{
+    {\color{black}\faLinkedin}\ \textcolor{black}{LinkedIn}
+} \ $|$ \
+\href{https://raghulkishoreinfo.netlify.app/}{
+    {\color{black}\faGlobe}\ \textcolor{black}{Portfolio}
+}\ $|$ \
+\href{https://github.com/raghulkishore}{
+    {\color{black}\faGithub}\ \textcolor{black}{GitHub}
+}
+
+
+
+\end{center}
+
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{PROFESSIONAL SUMMARY}
+Passionate Data Analyst and Python Developer with strong expertise in Python, MySQL, HTML, and data visualization tools such as Power BI and Excel. Skilled in cleaning, analyzing, and transforming data into actionable insights that drive better decision-making. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{TECHNICAL SKILLS}
+\resumeSubHeadingList
+  \resumeItem{\textbf{Python}: Pandas, Numpy, Matplotlib, Exploratory Data Analysis, Jupyter Notebook.}\\
+  \resumeItem{\textbf{MySQL}: Aggregate Functions, Joins, Subqueries, Query Optimization.}\\
+  \resumeItem{\textbf{Power BI}: Data Modeling, DAX measures, ETL using Power Query, interactive dashboards, KPIs, slicers.}\\
+  \resumeItem{\textbf{MS Excel}:  Pivot Tables, VLOOKUP/XLOOKUP, Power Query, Data Cleaning, Dashboard Creation.}\\
+\resumeSubHeadingListEnd
+%----------------------------------------------------------------------------------------
+%Experience
+\section{WORK EXPERIENCE}
+
+\begin{jobshort}{Power BI Intern} {Aug 2025 - Sep 2025} 
+\begin{itemize}
+    \item Planned and implemented interactive dashboards for investment preference analysis, enabling leadership to identify key investor trends across 200+ respondents.
+    \item Performed data cleaning and transformation (removing duplicates, fixing data types, and trimming inconsistencies),  
+    \item Developed key DAX measures (e.g., Total Respondents, Male Count, Female Count), enabling precise demographic analysis.
+\end{itemize}
+\end{jobshort}
+\vspace{6pt}
+%----------------------------------------------------------------------------------------
+%Projects
+\section{PROJECTS}
+
+\begin{jobshort}{Coronary Heart Disease Prediction}{Sep 2025 -- Oct 2025}
+\begin{itemize}
+    \item Performed data preprocessing and exploratory data analysis on health attributes (age, cholesterol, BMI, blood pressure, etc.).
+    \item Applied and compared multiple ML algorithms (Logistic Regression, Random Forest, SVM) to predict CHD risk levels.
+    \item Achieved high accuracy and interpretability by identifying key health indicators that influence CHD prediction.
+\end{itemize}
+\end{jobshort}
+\vspace{18pt}
+
+\begin{jobshort}{Library Management System}{Jun 2025 -- Aug 2025}
+\begin{itemize}
+    \item Designed and implemented a database-driven system to manage students, books, librarians, and borrowing records.
+    \item Gained hands-on experience with queries, joins, subqueries, aggregations, and database management.
+    \item Ensured data consistency by managing relationships between students, books, and borrowing records.
+\end{itemize}
+\end{jobshort}
+\vspace{18pt}
+
+\begin{jobshort}{Adventure Works Sales Analysis}{Jul 2025 -- Aug 2025}
+\begin{itemize}
+    \item Created interactive dashboards for Adventure Works sales analysis.
+    \item Built KPIs for revenue growth, profit margins, customer segmentation, and agent performance.
+    \item Applied DAX, data modeling, and Power Query to deliver actionable insights.
+\end{itemize}
+\end{jobshort}
+\vspace{6pt}
+
+\begin{jobshort}{Customer Service Analysis}{Jul 2025 -- Aug 2025}
+\begin{itemize}
+    \item Enhanced interactive dashboards for Customer Service analytics.
+    \item Built KPIs for ticket volume, agent performance, product-wise support, and knowledge base insights.
+    \item Leveraged DAX and Power BI visuals to improve agent efficiency and reduce ticket resolution time.
+\end{itemize}
+\end{jobshort}
+\vspace{6pt}
+
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATIONS
+%----------------------------------------------------------------------------------------
+\section{CERTIFICATIONS}
+\begin{itemize}
+    \item {\textbf{ICT Academy}: AWS Certified Cloud Architect}
+    \item {\textbf{Besant Technologies}: MySQL, Advanced Excel, Python, Power BI}
+\end{itemize}
+\vspace{6pt}
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{EDUCATION}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}X r@{}}
+
+\textbf{B.E. in Computer Science and Engineering} & \textbf{Aug 2021 - May 2025} \\
+Dhanalakshmi Srinivasan Engineering College, Perambalur & \textbf{CGPA: 7.6} \\[6pt]
+
+\textbf{HSC} & \textbf{Apr 2021} \\
+Saraswathi Matriculation Higher Secondary School, Ammampalayam & \textbf{Scored 86\%} \\[6pt]
+
+\textbf{SSLC} & \textbf{Apr 2019} \\
+Shri Swamy Matriculation Higher Secondary School, Pethanaickenpalayam & \textbf{Scored 81\%} \\
+
+\end{tabularx}
+
+
+
+\end{document}
